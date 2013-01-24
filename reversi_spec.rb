@@ -3,6 +3,7 @@ require 'rspec'
 
 include Reversi
 
+# MZ: Would be cool to see doubles when you test more involved interactions with other classes
 describe "Piece" do
   subject(:piece){ Piece.new(:teal) }
 

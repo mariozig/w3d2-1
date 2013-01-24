@@ -16,6 +16,7 @@ module Reversi
     end
 
     def flip
+      # MZ: These things are gonna look like cirque du solei when flipping
       @color = ( @color == :pink ? :teal : :pink )
     end
   end
@@ -57,6 +58,11 @@ module Reversi
 
     end
 
+    # MZ: RE this method and your comment on line 91... I think this is a good strategy.
+    # We converged on basically an identical strategy where
+    # we just keep incrementing(or decrementing) the row/column by the corrisponding
+    # directional delta coord (i hope that made sense lol).
+    # Just like your comment says, when we hit a sister piece or get off the board we would stop
     def opposing_neighbor_slopes(row, column, color)
         DELTAS.select do|(x,y)|
           r = row + x
@@ -68,6 +74,7 @@ module Reversi
       end
     end
 
+    # MZ: Clean check -- very readable.
     def on_board?(row, col)
       (0..7).include?(row) && (0..7).include?(col)
     end
@@ -76,7 +83,7 @@ module Reversi
       r, c = from
       paths = []
       opposing_slopes.each do
-        7.times do                                     
+        7.times do
         while on_board
         end
       end
